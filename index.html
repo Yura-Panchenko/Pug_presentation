@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>jade</h1>
+					<p>препроцессор HTML и шаблонизатор</p>
+				</section>
+
+				<section>
+					<section>
+						<h1>Плюсы jade</h1>
+						<ol>
+							<li>интуитивно понятен синтаксис по сравнению с haml и slim.</li>
+							<li>использование js непосредственно в коде</li>
+							<li>форматирование кода с помощью отступов</li>
+							<li>работает emmet как и в чистом html</li>
+							<li>тег обозначается начальным словом (в haml начинается с %)</li>
+							<li>отсутствуют закрывающиеся теги</li>
+						</ol>
+					</section>
+					<section>
+						<ol start="7">
+							<li>объявление id и class-ов сходно с написанием классов в css</li>
+							<li>атрибуты тегов можно записывать через запятую или без нее, также можно разбивать на строки</li>
+							<li>jade не скомпилит html если в коде будет ошибка</li>
+							<li>удобно подключать миксины и шаблоны</li>
+							<li>использование mixin дает возможность сделать код чище, структурирование</li>
+							<li>благодаря инклудам и миксинам есть возможность быстрого редактирования одинаковых блоков на всех страницах одновременно (код надо изменять только в одном месте)</li>
+						</ol>
+					</section>
+					<section>
+						<ol start="13">
+							<li>на выходе получается код более универсальный, удобный для имплементатора (верстка блоками, меньше дополнительных классов, более структурированный код)</li>
+							<li>возможность нормального распаралеливания</li>
+							<li>ускорение верстки</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Минусы</h2>
+						<ol>
+							<li>
+								<p>если надо получить закоменченый кусок кода</p>
+								<img src="images/img-20.png" alt="image description" width="601" height="143">
+								<p>нам надо записать код в следующем виде</p>
+								<img src="images/img-21.png" alt="image description" width="601" height="143">
+							</li>
+						</ol>
+					</section>
+					<section>
+						<ol start="2">
+							<li>
+								<p>сложность разбора чужого кода</p>
+							</li>
+							<li>
+								<p>нужны базовые знания js</p>
+							</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<p>предлагаю использовать такую структуру папок</p>
+					<ul>
+						<li>templates</li>
+						<ul>
+							<li>inc
+								<ul>
+									<li>head.jade</li>
+									<li>header.jade</li>
+									<li>footer.jade</li>
+								</ul>
+							</li>
+							<li>mixin
+								<ul>
+									<li>mixin.jade</li>
+								</ul>
+							</li>
+							<li>index.jade</li>
+							<li>inner.jade</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Теперь о самом Jade/Pug</h2>
+					<h4>Jade - синтаксис для Sublime Text</h4>
+					<p>Прежде чем писать код в Sublime Text 3 необходимо настроить поддержку синтаксиса Jade.</p>
+					<p>Достаточно через Package Control установить пакет Jade.</p>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Синтаксис</h2>
+						<p>Синтаксис Jade напоминает синтаксис CSS. <br>Вот так мы определяем классы и id:</p>
+						<img src="images/img-01.png" alt="image description" width="737" height="177">
+					</section>
+					<section>
+						<p>Вложенность соблюдается с помощью отступов. Также вложенность можно соблюдать с помощью конструкции {selector}:  {selector}: и тд</p>
+						<img src="images/img-02.png" alt="image description" width="669" height="458">
+					</section>
+					<section>
+						<p>Большие куски текста записываются так:</p>
+						<img src="images/img-09.png" alt="image description" width="126" height="98">
+						<p>или так, но перед точкой не должно быть пробела:</p>
+						<img src="images/img-10.png" alt="image description" width="126" height="98">
+					</section>
+					<section>
+						<p>Если надо отобразить именно последовательность символов #{}, то можно заэкранировать ее обратной косой чертой \#{}:</p>
+						<img src="images/img-11.png" alt="image description" width="127" height="26">
+					</section>
+				</section>
+
+				<section>
+					<h2>Стили в head</h2>
+					<p>Если нам нужно прописать стили в <em>&lt;head&gt;</em>, мы можем это сделать с помощью конструкции style. и дальше пишем стили как в CSS.</p>
+					<img src="images/img-03.png" alt="image description" width="314" height="363">
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Атрибуты</h2>
+						<p>Все атрибуты прописываем в скобках через запятую или без нее (как кому будет удобней).</p>
+						<img src="images/img-04.png" alt="image description" width="837" height="338">
+					</section>
+					<section>
+						<p>Есть некоторые особенности атрибутов в тегах <em>&lt;input&gt;</em> в Jade их можно разбивать на несколько строк. При переносе запятую можно опускать</p>
+						<img src="images/img-05.png" alt="image description" width="800" height="324">
+					</section>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Комментарии в Jade</h2>
+						<p>Обычные комментарии прописываются 2 слешами (//), этот комментарий скомпилируется в HTML, если нам не нужно компилировать комментарий, но в  исходниках он нам нужен пишем просто  (//-), данная конструкция закомментирует, то что нам нужно и не будет отображатся в скомпиллированом коде.</p>
+					</section>
+					<section>
+						<img src="images/img-06.png" alt="image description" width="372" height="377">
+					</section>
+					<section>
+						<p>Иногда нам нужно в <em>&lt;head&gt;</em> прописать условные комментарии для браузера Internet Explorer, мы можем это сделать с помощью следующей конструкции:</p>
+						<img src="images/img-07.png" alt="image description" width="589" height="280">
+					</section>
+					<section>
+						<p>Если нам нужно закоментировать некий контент, вместо того, чтобы ставить // на каждой строке, мы можем поставить // сделать отступт и весь контент, что идет в пределах этого таба будет закоментирован.</p>
+						<img src="images/img-08.png" alt="image description" width="589" height="249">
+					</section>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Переменные</h2>
+						<p>В Jade, как и в любом препроцессоре и шаблонизаторе есть переменные.
+						Переменные мы можем объявить с помощью 2 способов.
+						Первый способ объявить непосредственно в нашем файле,
+						второй способ — вынести их в отдельный файл.</p>
+						<p>Переменные могут объявляться как до их вызова, так и после,
+						также можно подключить переменные в отдельном файле,
+						и с помощью include подключить к нашему шаблону.</p>
+						<p>Переменные мы можем использовать где угодно и где они нам могут понадобится.</p>
+					</section>
+					<section>
+						<img src="images/img-12.png" alt="image description" width="990" height="181">
+						<p>Использование переменных в переменной:</p>
+						<img src="images/img-13.png" alt="image description" width="980" height="143">
+					</section>
+					<section>
+						<img src="images/img-14.png" alt="image description" width="979" height="306">
+					</section>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Условия</h2>
+						<h3>if</h3>
+						<img src="images/img-15.png" alt="image description" width="473" height="418">
+					</section>
+					<section>
+						<h3>When</h3>
+						<p>Данная конструкция использует условия, но вместо if, else использует условие when</p>
+						<img src="images/img-16.png" alt="image description" width="982" height="266">
+					</section>
+					<section>
+						<h3>Each</h3>
+						<img src="images/img-17.png" alt="image description" width="979" height="306">
+						<p>и другой js</p>
+					</section>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Миксины</h2>
+						<p>С момощью миксин есть возможность каждый раз не повторять одинаковый код</p>
+						<img src="images/img-18.png" alt="image description" width="744" height="424">
+					</section>
+					<section>
+						<p>Миксина навигации с активным классом</p>
+						<img src="images/img-19.png" alt="image description" width="316" height="120">
+					</section>
+					<section>
+						<p>Миксина для ретины. Записываем только название имаги, а миксин делает все за нас ;-)</p>
+						<img src="images/img-22.png" alt="image description" width="730" height="118">
+					</section>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Инклюды</h2>
+						<p>Инклюды позволяют статически подключать куски кода шаблонов Jade, находящиеся в отдельных файлах. Классический пример это подключение хедера и футера.</p>
+					</section>
+					<section>
+						<p>Например есть следующая структура папок:</p>
+						<img src="images/img-23.png" alt="image description" width="125" height="81">
+						<p>и следующий <i>layout.jade</i>:</p>
+						<img src="images/img-24.png" alt="image description" width="311" height="116">
+					</section>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Extends</h2>
+						<p>Extends позволяет не просто вставить контент с другой страницы, но и может заменить или переписать некоторые значения, которые объявлены повторно.</p>
+						<p>На примере мы видим, что страница layout.jade имеет свой title, который отличается от того, что указан на странице index.jade, в скомлированном html остался title с index.jade.</p>
+					</section>
+					<section>
+						<img src="images/img-25.png" alt="image description" width="476" height="613">
+					</section>
+					<section>
+						<p>Отличие includes от extends в том, что первое не изменяет контент, а extends меняет.</p>
+					</section>
+				</section>
+
+				<section>
+					<p>Рекомендовано к прочтению:</p>
+					<ul>
+						<li>Официальный сайт <a href="http://jade-lang.com/">Jade</a></li>
+						<li>Онлайн компиляция <a href="http://html2jade.org/">Jade -> HTML</a></li>
+						<li>Онлайн компиляции <a href="http://html2jade.aaron-powell.com/">HTML ->Jade</a></li>
+						<li><a href="http://jsman.ru/jade/">Jade - движок шаблонов</a></li>
+						<li><a href="http://naltatis.github.io/jade-syntax-docs/">Jade Syntax Documentation</a></li>
+						<li><a href="https://habrahabr.ru/post/278109/">Туториал по Jade для начинающих</a></li>
+						<li><a href="https://www.youtube.com/watch?v=QCsFDi1cQIk">Jade html Шаблонизатор Обзор</a></li>
+					</ul>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
