@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Pug</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="PUG preprocessor html">
+		<meta name="author" content="Yuriy Panchenko">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -41,40 +41,336 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>jade</h1>
-					<p>препроцессор HTML и шаблонизатор</p>
+					<h1>PUG</h1>
+					<p>Pug - это препроцессор HTML и шаблонизатор, который был написан на JavaScript для Node.js.</p>
+				</section>
+				
+				<section>
+					<section>
+						<h1>Плюсы</h1>
+						<ol>
+							<li>c pug мы получаем меньше кода, по сравнению с html</li>
+							<li>работает emmet как и в чистом html</li>
+							<li>форматирование кода происходит с помощью отступов</li>
+							<li>отсутствуют закрывающиеся теги</li>
+							<li>объявление id и class-ов сходно с написанием классов в css</li>
+							<li>атрибуты тегов можно записывать через запятую или без нее, также можно разбивать на строки</li>
+							<li>можно вставлять куски html непосредственно в pug</li>
+							<li>можно использовать js для генерации html</li>
+							<li>можно подключать миксины и шаблоны</li>
+							<li>можно инклудить готовые куски кода</li>
+							<li>при использовании pug можно хорошо распаралелить разработку проекта, что ведет за собой ускорение верстки</li>
+						</ol>
+					</section>
+				</section>
+
+				<section>
+					<h2>Начало разработки на pug.</h2>
+					<p>Прежде чем начать кодить на pug, необходимо настроить Sublime Text 3.</p>
+					<p>Достаточно через Package Control установить пакет Pug.</p>
+					<p>собрать сборку с pug самому или <a href="#">выкачать существующую</a></p>
 				</section>
 
 				<section>
 					<section>
-						<h1>Плюсы jade</h1>
-						<ol>
-							<li>интуитивно понятен синтаксис по сравнению с haml и slim.</li>
-							<li>использование js непосредственно в коде</li>
-							<li>форматирование кода с помощью отступов</li>
-							<li>работает emmet как и в чистом html</li>
-							<li>тег обозначается начальным словом (в haml начинается с %)</li>
-							<li>отсутствуют закрывающиеся теги</li>
-						</ol>
+						<h2>Теги</h2>
+						<p>По умолчанию текст в начале строки представляет собой HTML-тег. Теги с отступом вкладываются, создавая древовидную структуру HTML.</p>
+						<div class="columns">
+							<div class="col">
+								<h5>pug</h5>
+								<pre>
+ul
+	li Item A
+	li Item B
+	li Item C
+								</pre>
+							</div>
+							<div class="col">
+								<h5>html</h5>
+								<pre>
+&lt;ul&gt;
+	&lt;li&gt;Item A&lt;/li&gt;
+	&lt;li&gt;Item B&lt;/li&gt;
+	&lt;li&gt;Item C&lt;/li&gt;
+&lt;/ul&gt;
+								</pre>
+							</div>
+						</div>
 					</section>
+
 					<section>
-						<ol start="7">
-							<li>объявление id и class-ов сходно с написанием классов в css</li>
-							<li>атрибуты тегов можно записывать через запятую или без нее, также можно разбивать на строки</li>
-							<li>jade не скомпилит html если в коде будет ошибка</li>
-							<li>удобно подключать миксины и шаблоны</li>
-							<li>использование mixin дает возможность сделать код чище, структурирование</li>
-							<li>благодаря инклудам и миксинам есть возможность быстрого редактирования одинаковых блоков на всех страницах одновременно (код надо изменять только в одном месте)</li>
-						</ol>
+						<p>pug так же определяет самозакрывающиеся теги</p>
+						<div class="columns">
+							<div class="col">
+								<h5>pug</h5>
+								<pre>
+img
+input(type="text")
+br
+								</pre>
+							</div>
+							<div class="col">
+								<h5>html</h5>
+								<pre>
+&lt;img/&gt;
+&lt;input type="text"&gt;
+&lt;br&gt;
+								</pre>
+							</div>
+						</div>
 					</section>
+
 					<section>
-						<ol start="13">
-							<li>на выходе получается код более универсальный, удобный для имплементатора (верстка блоками, меньше дополнительных классов, более структурированный код)</li>
-							<li>возможность нормального распаралеливания</li>
-							<li>ускорение верстки</li>
-						</ol>
+						<p>Непосредственно в Pug можно вставлять элементы в HTML синтаксисе</p>
+						<div class="columns">
+							<div class="col">
+								<h5>pug</h5>
+								<pre>
+p This is plain old &lt;em&gt;text&lt;/em&gt; content.
+								</pre>
+							</div>
+							<div class="col">
+								<h5>html</h5>
+								<pre>
+&lt;p&gt;This is plain old &lt;em&gt;text&lt;/em&gt; content.&lt;/p&gt;
+								</pre>
+							</div>
+						</div>
 					</section>
 				</section>
+
+				<section>
+					<section>
+						<h2>Атрибуты</h2>
+						<p></p>
+						<div class="columns">
+							<div class="col">
+								<h5>pug</h5>
+								<pre>
+a(href='google.com') Google
+|
+|
+a(class='button' href='google.com') Google
+|
+|
+a(class='button', href='google.com') Google
+								</pre>
+							</div>
+							<div class="col">
+								<h5>html</h5>
+								<pre>
+&lt;a href="google.com"&gt;Google&lt;/a&gt;
+&lt;a class="button" href="google.com"&gt;Google&lt;/a&gt;
+&lt;a class="button" href="google.com"&gt;Google&lt;/a&gt;
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section>
+						<p>Многострочные атрибуты</p>
+						<div class="columns">
+							<div class="col">
+								<h5>pug</h5>
+								<pre>
+input(
+  type='checkbox'
+  name='agreement'
+  checked
+)
+								</pre>
+							</div>
+							<div class="col">
+								<h5>html</h5>
+								<pre>
+&lt;input type="checkbox" name="agreement" checked="checked" /&gt;
+								</pre>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Pug поддерживает switch case</h2>
+						<div class="columns">
+							<div class="col">
+								<h5>pug</h5>
+								<pre>
+- var friends = 10
+case friends
+  when 0
+    p you have no friends
+  when 1
+    p you have a friend
+  default
+    p you have #{friends} friends
+								</pre>
+							</div>
+							<div class="col">
+								<h5>html</h5>
+								<pre>
+&lt;p&gt;you have 10 friends&lt;/p&gt;
+								</pre>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Циклы</h2>
+						<div class="columns">
+							<div class="col">
+								<h5>pug</h5>
+								<pre>
+ul
+  each val, index in ['zero', 'one', 'two']
+    li= index + ': ' + val
+								</pre>
+							</div>
+							<div class="col">
+								<h5>html</h5>
+								<pre>
+&lt;ul&gt;
+  &lt;li&gt;0: zero&lt;/li&gt;
+  &lt;li&gt;1: one&lt;/li&gt;
+  &lt;li&gt;2: two&lt;/li&gt;
+&lt;/ul&gt;
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="columns">
+							<div class="col">
+								<h5>pug</h5>
+								<pre>
+- var n = 0;
+ul
+  while n < 4
+    li= n++
+								</pre>
+							</div>
+							<div class="col">
+								<h5>html</h5>
+								<pre>
+&lt;ul&gt;
+  &lt;li&gt;0&lt;/li&gt;
+  &lt;li&gt;1&lt;/li&gt;
+  &lt;li&gt;2&lt;/li&gt;
+  &lt;li&gt;3&lt;/li&gt;
+&lt;/ul&gt;
+								</pre>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Вставка JavaScript кода</h2>
+						<p>Pug поддерживает вставку частей JavaScript кода в шаблоны.</p>
+						<div class="columns">
+							<div class="col">
+								<h5>pug</h5>
+								<pre>
+- for (var x = 0; x < 3; x++)
+  li item
+								</pre>
+							</div>
+							<div class="col">
+								<h5>html</h5>
+								<pre>
+&lt;li&gt;item&lt;/li&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;li&gt;item&lt;/li&gt;
+								</pre>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Комментарии</h2>
+						<p>Существуют различные комментариев: те, которые будут отображаться после компиляции, и те, которые пропадут.</p>
+						<div class="columns">
+							<div class="col">
+								<h5>pug</h5>
+								<pre>
+// just some paragraphs
+//- will not output within markup
+p foo
+p bar
+								</pre>
+							</div>
+							<div class="col">
+								<h5>html</h5>
+								<pre>
+&lt;!-- just some paragraphs--&gt;
+&lt;p&gt;foo&lt;/p&gt;
+&lt;p&gt;bar&lt;/p&gt;
+								</pre>
+							</div>
+						</div>
+					</section>
+					<section>
+						<p>Блочные коментарии</p>
+						<div class="columns">
+							<div class="col">
+								<h5>pug</h5>
+								<pre>
+body
+  //-
+    Comments for your template writers.
+    Use as much text as you want.
+  //
+    Comments for your HTML readers.
+    Use as much text as you want.
+								</pre>
+							</div>
+							<div class="col">
+								<h5>html</h5>
+								<pre>
+&lt;body&gt;
+  &lt;!--Comments for your HTML readers.
+Use as much text as you want.--&gt;
+&lt;/body&gt;
+								</pre>
+							</div>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Инклюды (Includes)</h2>
+						<p>Pug имеет возможность вставки содержимого одного файла в другой файл Pug.</p>
+						<div class="columns">
+							<div class="col">
+								<h5>pug</h5>
+								<pre>
+// just some paragraphs
+//- will not output within markup
+p foo
+p bar
+								</pre>
+							</div>
+							<div class="col">
+								<h5>html</h5>
+								<pre>
+&lt;!-- just some paragraphs--&gt;
+&lt;p&gt;foo&lt;/p&gt;
+&lt;p&gt;bar&lt;/p&gt;
+								</pre>
+							</div>
+						</div>
+					</section>
+				</section>
+
+
+
+
 
 				<section>
 					<section>
