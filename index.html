@@ -55,6 +55,10 @@
 							<li>отсутствуют закрывающиеся теги</li>
 							<li>объявление id и class-ов сходно с написанием классов в css</li>
 							<li>атрибуты тегов можно записывать через запятую или без нее, также можно разбивать на строки</li>
+						</ol>
+					</section>
+					<section>
+						<ol start="7">
 							<li>можно вставлять куски html непосредственно в pug</li>
 							<li>можно использовать js для генерации html</li>
 							<li>можно подключать миксины и шаблоны</li>
@@ -66,9 +70,9 @@
 
 				<section>
 					<h2>Начало разработки на pug.</h2>
-					<p>Прежде чем начать кодить на pug, необходимо настроить Sublime Text 3.</p>
-					<p>Достаточно через Package Control установить пакет Pug.</p>
-					<p>собрать сборку с pug самому или <a href="#">выкачать существующую</a></p>
+					<p>Прежде чем начать кодить на pug, необходимо настроить Sublime или другой редактор.</p>
+					<p>В случае с Sublime, достаточно через Package Control установить пакет Pug.</p>
+					<p>Собрать сборку с pug можно самому (но это отдельная история) или <a target="_blank" href="https://github.com/OlgaGolova/markupWP">выкачать существующую</a></p>
 				</section>
 
 				<section>
@@ -99,7 +103,7 @@ ul
 					</section>
 
 					<section>
-						<p>pug так же определяет самозакрывающиеся теги</p>
+						<p>Pug так сам определяет самозакрывающиеся теги</p>
 						<div class="columns">
 							<div class="col">
 								<h5>pug</h5>
@@ -219,6 +223,17 @@ case friends
 				<section>
 					<section>
 						<h2>Циклы</h2>
+						<ul>
+							<li>Удобно использовать циклы для заполнения страници одинаковым контентом</li>
+							<li>создание списка соц иконок</li>
+							<li>создание меню</li>
+							<li>создание breadcrumbs</li>
+							<li>создание списка постов</li>
+							<li>и т.д.</li>
+						</ul>
+					</section>
+					
+					<section>
 						<div class="columns">
 							<div class="col">
 								<h5>pug</h5>
@@ -240,6 +255,7 @@ ul
 							</div>
 						</div>
 					</section>
+
 					<section>
 						<div class="columns">
 							<div class="col">
@@ -264,12 +280,7 @@ ul
 							</div>
 						</div>
 					</section>
-				</section>
-
-				<section>
 					<section>
-						<h2>Вставка JavaScript кода</h2>
-						<p>Pug поддерживает вставку частей JavaScript кода в шаблоны.</p>
 						<div class="columns">
 							<div class="col">
 								<h5>pug</h5>
@@ -293,7 +304,7 @@ ul
 				<section>
 					<section>
 						<h2>Комментарии</h2>
-						<p>Существуют различные комментариев: те, которые будут отображаться после компиляции, и те, которые пропадут.</p>
+						<p>Существуют различные комментарии: те, которые будут отображаться после компиляции, и те, которые пропадут.</p>
 						<div class="columns">
 							<div class="col">
 								<h5>pug</h5>
@@ -350,140 +361,20 @@ Use as much text as you want.--&gt;
 							<div class="col">
 								<h5>pug</h5>
 								<pre>
-// just some paragraphs
-//- will not output within markup
-p foo
-p bar
+include pug/common/_head
+  block content
+    include pug/common/_header
+    main#main(role="main")
+      .container
+        h1 Home page
+    include pug/common/_footer
 								</pre>
 							</div>
 							<div class="col">
 								<h5>html</h5>
-								<pre>
-&lt;!-- just some paragraphs--&gt;
-&lt;p&gt;foo&lt;/p&gt;
-&lt;p&gt;bar&lt;/p&gt;
-								</pre>
+								<img src="images/image-01.jpg" alt="">
 							</div>
 						</div>
-					</section>
-				</section>
-
-
-
-
-
-				<section>
-					<section>
-						<h2>Минусы</h2>
-						<ol>
-							<li>
-								<p>если надо получить закоменченый кусок кода</p>
-								<img src="images/img-20.png" alt="image description" width="601" height="143">
-								<p>нам надо записать код в следующем виде</p>
-								<img src="images/img-21.png" alt="image description" width="601" height="143">
-							</li>
-						</ol>
-					</section>
-					<section>
-						<ol start="2">
-							<li>
-								<p>сложность разбора чужого кода</p>
-							</li>
-							<li>
-								<p>нужны базовые знания js</p>
-							</li>
-						</ol>
-					</section>
-				</section>
-
-				<section>
-					<p>предлагаю использовать такую структуру папок</p>
-					<ul>
-						<li>templates</li>
-						<ul>
-							<li>inc
-								<ul>
-									<li>head.jade</li>
-									<li>header.jade</li>
-									<li>footer.jade</li>
-								</ul>
-							</li>
-							<li>mixin
-								<ul>
-									<li>mixin.jade</li>
-								</ul>
-							</li>
-							<li>index.jade</li>
-							<li>inner.jade</li>
-						</ul>
-					</ul>
-				</section>
-
-				<section>
-					<h2>Теперь о самом Jade/Pug</h2>
-					<h4>Jade - синтаксис для Sublime Text</h4>
-					<p>Прежде чем писать код в Sublime Text 3 необходимо настроить поддержку синтаксиса Jade.</p>
-					<p>Достаточно через Package Control установить пакет Jade.</p>
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Синтаксис</h2>
-						<p>Синтаксис Jade напоминает синтаксис CSS. <br>Вот так мы определяем классы и id:</p>
-						<img src="images/img-01.png" alt="image description" width="737" height="177">
-					</section>
-					<section>
-						<p>Вложенность соблюдается с помощью отступов. Также вложенность можно соблюдать с помощью конструкции {selector}:  {selector}: и тд</p>
-						<img src="images/img-02.png" alt="image description" width="669" height="458">
-					</section>
-					<section>
-						<p>Большие куски текста записываются так:</p>
-						<img src="images/img-09.png" alt="image description" width="126" height="98">
-						<p>или так, но перед точкой не должно быть пробела:</p>
-						<img src="images/img-10.png" alt="image description" width="126" height="98">
-					</section>
-					<section>
-						<p>Если надо отобразить именно последовательность символов #{}, то можно заэкранировать ее обратной косой чертой \#{}:</p>
-						<img src="images/img-11.png" alt="image description" width="127" height="26">
-					</section>
-				</section>
-
-				<section>
-					<h2>Стили в head</h2>
-					<p>Если нам нужно прописать стили в <em>&lt;head&gt;</em>, мы можем это сделать с помощью конструкции style. и дальше пишем стили как в CSS.</p>
-					<img src="images/img-03.png" alt="image description" width="314" height="363">
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Атрибуты</h2>
-						<p>Все атрибуты прописываем в скобках через запятую или без нее (как кому будет удобней).</p>
-						<img src="images/img-04.png" alt="image description" width="837" height="338">
-					</section>
-					<section>
-						<p>Есть некоторые особенности атрибутов в тегах <em>&lt;input&gt;</em> в Jade их можно разбивать на несколько строк. При переносе запятую можно опускать</p>
-						<img src="images/img-05.png" alt="image description" width="800" height="324">
-					</section>
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Комментарии в Jade</h2>
-						<p>Обычные комментарии прописываются 2 слешами (//), этот комментарий скомпилируется в HTML, если нам не нужно компилировать комментарий, но в  исходниках он нам нужен пишем просто  (//-), данная конструкция закомментирует, то что нам нужно и не будет отображатся в скомпиллированом коде.</p>
-					</section>
-					<section>
-						<img src="images/img-06.png" alt="image description" width="372" height="377">
-					</section>
-					<section>
-						<p>Иногда нам нужно в <em>&lt;head&gt;</em> прописать условные комментарии для браузера Internet Explorer, мы можем это сделать с помощью следующей конструкции:</p>
-						<img src="images/img-07.png" alt="image description" width="589" height="280">
-					</section>
-					<section>
-						<p>Если нам нужно закоментировать некий контент, вместо того, чтобы ставить // на каждой строке, мы можем поставить // сделать отступт и весь контент, что идет в пределах этого таба будет закоментирован.</p>
-						<img src="images/img-08.png" alt="image description" width="589" height="249">
 					</section>
 				</section>
 
@@ -500,91 +391,35 @@ p bar
 						и с помощью include подключить к нашему шаблону.</p>
 						<p>Переменные мы можем использовать где угодно и где они нам могут понадобится.</p>
 					</section>
-					<section>
-						<img src="images/img-12.png" alt="image description" width="990" height="181">
-						<p>Использование переменных в переменной:</p>
-						<img src="images/img-13.png" alt="image description" width="980" height="143">
-					</section>
-					<section>
-						<img src="images/img-14.png" alt="image description" width="979" height="306">
-					</section>
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Условия</h2>
-						<h3>if</h3>
-						<img src="images/img-15.png" alt="image description" width="473" height="418">
-					</section>
-					<section>
-						<h3>When</h3>
-						<p>Данная конструкция использует условия, но вместо if, else использует условие when</p>
-						<img src="images/img-16.png" alt="image description" width="982" height="266">
-					</section>
-					<section>
-						<h3>Each</h3>
-						<img src="images/img-17.png" alt="image description" width="979" height="306">
-						<p>и другой js</p>
-					</section>
 				</section>
 
 				<!-- Example of nested vertical slides -->
 				<section>
 					<section>
 						<h2>Миксины</h2>
-						<p>С момощью миксин есть возможность каждый раз не повторять одинаковый код</p>
-						<img src="images/img-18.png" alt="image description" width="744" height="424">
-					</section>
-					<section>
-						<p>Миксина навигации с активным классом</p>
-						<img src="images/img-19.png" alt="image description" width="316" height="120">
-					</section>
-					<section>
-						<p>Миксина для ретины. Записываем только название имаги, а миксин делает все за нас ;-)</p>
-						<img src="images/img-22.png" alt="image description" width="730" height="118">
-					</section>
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Инклюды</h2>
-						<p>Инклюды позволяют статически подключать куски кода шаблонов Jade, находящиеся в отдельных файлах. Классический пример это подключение хедера и футера.</p>
-					</section>
-					<section>
-						<p>Например есть следующая структура папок:</p>
-						<img src="images/img-23.png" alt="image description" width="125" height="81">
-						<p>и следующий <i>layout.jade</i>:</p>
-						<img src="images/img-24.png" alt="image description" width="311" height="116">
-					</section>
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Extends</h2>
-						<p>Extends позволяет не просто вставить контент с другой страницы, но и может заменить или переписать некоторые значения, которые объявлены повторно.</p>
-						<p>На примере мы видим, что страница layout.jade имеет свой title, который отличается от того, что указан на странице index.jade, в скомлированном html остался title с index.jade.</p>
-					</section>
-					<section>
-						<img src="images/img-25.png" alt="image description" width="476" height="613">
-					</section>
-					<section>
-						<p>Отличие includes от extends в том, что первое не изменяет контент, а extends меняет.</p>
+						<p>С момощью миксин можно не повторять каждый раз одинаковый код, а только менять наполнение блоков</p>
+						<pre>
+mixin bgRetina(obj)
+  .bg-retina
+    span(data-srcset="images/small-"+obj.imgName+".jpg, images/small-"+obj.imgName+"@2x.jpg 2x")
+    span(data-srcset="images/"+obj.imgName+".jpg", data-media="(min-width: 768px)")
+						</pre>
+						<p>На странице мы прописываем только маленикий кусок кода, а для каждой картинки мы только меняем ее название</p>
+						<pre>
++bgRetina({
+  imgName: 'slide-01'
+})
+						</pre>
 					</section>
 				</section>
 
 				<section>
 					<p>Рекомендовано к прочтению:</p>
 					<ul>
-						<li>Официальный сайт <a href="http://jade-lang.com/">Jade</a></li>
-						<li>Онлайн компиляция <a href="http://html2jade.org/">Jade -> HTML</a></li>
-						<li>Онлайн компиляции <a href="http://html2jade.aaron-powell.com/">HTML ->Jade</a></li>
-						<li><a href="http://jsman.ru/jade/">Jade - движок шаблонов</a></li>
-						<li><a href="http://naltatis.github.io/jade-syntax-docs/">Jade Syntax Documentation</a></li>
-						<li><a href="https://habrahabr.ru/post/278109/">Туториал по Jade для начинающих</a></li>
-						<li><a href="https://www.youtube.com/watch?v=QCsFDi1cQIk">Jade html Шаблонизатор Обзор</a></li>
+						<li>Официальный сайт <a target="_blank" href="https://pugjs.org/api/getting-started.html">Pug</a></li>
+						<li>Онлайн компиляция <a target="_blank" href="https://pughtml.com/">Pug -> HTML и обратно</a></li>
+						<li><a target="_blank" href="https://gist.github.com/neretin-trike/53aff5afb76153f050c958b82abd9228">Туториал по HTML препроцессору Pug</a></li>
+						<li><a target="_blank" href="https://www.youtube.com/watch?v=QCsFDi1cQIk">Jade/Pug html Шаблонизатор video oбзор</a></li>
 					</ul>
 				</section>
 
